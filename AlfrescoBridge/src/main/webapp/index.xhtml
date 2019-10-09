@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Alfresco Bridge</title>
+    </h:head>
+    <h:body>
+        <h1>Lista de archivos en Alfresco</h1>
+
+        <h:form id="frmContent">
+            <p:dataTable value="#{alfContentC.listaContentAlf}" var="content" 
+                         filteredValue="#{alfContentC.listaContentAlfSelected}"
+                         paginator="true"
+                         rows="15"
+                         rowsPerPageTemplate="5,10,15">
+
+                <p:column headerText="nombre archivo"
+                          filterMatchMode="contains"
+                          filterBy="#{content.alfNodeProperties.string_value}"
+                          sortBy="#{content.alfNodeProperties.string_value}">
+                    <h:outputText value="#{content.alfNodeProperties.string_value}"/>
+                </p:column>
+
+                <p:column headerText="creación" 
+                          sortBy="#{content.alfNode.audit_created}">
+                    <h:outputText value="#{content.alfNode.audit_created}"/>
+                </p:column>
+
+                <p:column headerText="Ver archivo">
+                    <p:button value="Ver" href="http://35.245.9.33/share/proxy/alfresco/api/node/content/versionStore/version2Store/#{content.alfNode.uuid}/#{content.alfNodeProperties.string_value}" />
+                </p:column>
+                <p:column headerText="Descargar archivo">
+                    <p:button value="Descargar" href="http://35.245.9.33/share/proxy/alfresco/api/node/content/versionStore/version2Store/#{content.alfNode.uuid}/#{content.alfNodeProperties.string_value}?a=true" />
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+
+    </h:body>
+</html>
+
