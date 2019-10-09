@@ -11,7 +11,7 @@
 
         <h:form id="frmContent">
             <p:dataTable value="#{alfContentC.listaContentAlf}" var="content" 
-                         filteredValue="#{alfContentC.listaContentAlfSelected}"
+                         filteredValue="#{alfContentC.listaContentAlfFiltrado}"
                          paginator="true"
                          rows="15"
                          rowsPerPageTemplate="5,10,15">
@@ -33,6 +33,37 @@
                 </p:column>
                 <p:column headerText="Descargar archivo">
                     <p:button value="Descargar" href="http://35.245.9.33/share/proxy/alfresco/api/node/content/versionStore/version2Store/#{content.alfNode.uuid}/#{content.alfNodeProperties.string_value}?a=true" />
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+
+        <h1>Puente con Oracle</h1>
+
+        <h3>el nombre de archivo con el que se sube a Alfresco tendría que ser el id de oracle</h3>
+        <h3>el uuid tendría que estar oracle</h3>
+        <h3>el uuid que se indexaría tendría que ser con la fecha más reciente</h3>
+        <br/>
+
+        <h:form id="frmDocumento">
+            <p:dataTable value="#{documentoC.listaDocumento}" var="documento" 
+                         filteredValue="#{documentoC.listaDocumentoFiltrado}"
+                         paginator="true"
+                         rows="15"
+                         rowsPerPageTemplate="5,10,15">
+
+
+                <p:column headerText="Asunto"
+                          filterMatchMode="contains"
+                          filterBy="#{documento.ASUDOC}"
+                          sortBy="#{documento.ASUDOC}">
+                    <h:outputText value="#{documento.ASUDOC}"/>
+                </p:column>
+                <p:column headerText="Ver archivo">
+                    <p:button value="Ver" href="http://35.245.9.33/share/proxy/alfresco/api/node/content/versionStore/version2Store/#{documento.alfContent.alfNode.uuid}/#{documento.IDDOC}.#{documento.EXTDOC}" />
+                </p:column>
+                <p:column headerText="Descargar archivo">
+                    <p:button value="Ver" href="http://35.245.9.33/share/proxy/alfresco/api/node/content/versionStore/version2Store/#{documento.alfContent.alfNode.uuid}/#{documento.IDDOC}.#{documento.EXTDOC}?a=true" />
                 </p:column>
 
             </p:dataTable>

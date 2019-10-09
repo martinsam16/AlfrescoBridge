@@ -1,4 +1,4 @@
-package modelo;
+package modelo.alfresco;
 
 import lombok.Data;
 

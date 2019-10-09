@@ -1,13 +1,15 @@
-package dao;
+package dao.alfresco;
 
+import dao.Conexion;
+import dao.ICrud;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.AlfContentUrl;
-import modelo.AlfNode;
-import modelo.AlfNodeProperties;
-import modelo.AlfContentM;
+import modelo.alfresco.AlfContentUrl;
+import modelo.alfresco.AlfNode;
+import modelo.alfresco.AlfNodeProperties;
+import modelo.alfresco.AlfContentM;
 
 public class AlfContent extends Conexion implements ICrud<AlfContentM> {
 
