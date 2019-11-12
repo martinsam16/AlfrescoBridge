@@ -8,7 +8,15 @@
     </h:head>
     <h:body>
         <h1>Lista de archivos en Alfresco</h1>
-
+        
+        <h:form>
+            <center>
+            <p:fileUpload  mode="advanced" dragDropSupport="false"
+                          update="messages" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+            <p:growl id="messages" showDetail="true" />  
+            </center>
+        </h:form>
+        
         <h:form id="frmContent">
             <p:dataTable value="#{alfContentC.listaContentAlf}" var="content" 
                          filteredValue="#{alfContentC.listaContentAlfFiltrado}"
