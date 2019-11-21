@@ -13,9 +13,9 @@ public class Conexion {
             Class.forName("org.postgresql.Driver");
             conexionPostgre = DriverManager
                     .getConnection(
-                            "jdbc:postgresql://35.245.9.33:5432/alfresco",
+                            "jdbc:postgresql://35.236.223.58/alfresco",
                             "alfresco",
-                            "Zy6.mfjE"
+                            "J5wmr-Qu"
                     );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,8 +38,8 @@ public class Conexion {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             conexionOracle = DriverManager.getConnection(
                     "jdbc:oracle:thin:@35.184.25.222:1521:XE",
-                    "dbiDoc",
-                    "iDoc-2019");
+                    "ALFRESCO",
+                    "Alfresco2019");
         } catch (SQLException e) {
             e.printStackTrace();
         }

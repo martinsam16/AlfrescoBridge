@@ -36,7 +36,7 @@ public class AlfContent extends Conexion implements ICrud<AlfContentM> {
                     + "where\n"
                     + "  n.type_qname_id in (\n"
                     + "    select id from alf_qname where local_name='content'\n"
-                    + "  );";
+                    + "  )";
             PreparedStatement ps = this.conectarPostgre().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

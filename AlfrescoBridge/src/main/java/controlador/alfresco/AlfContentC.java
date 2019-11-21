@@ -1,4 +1,4 @@
-package controlador;
+package controlador.alfresco;
 
 import dao.alfresco.AlfContent;
 import javax.inject.Named;

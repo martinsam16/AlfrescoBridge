@@ -1,6 +1,5 @@
 package modelo.oracle;
 
-import java.util.Date;
 import lombok.Data;
 import modelo.alfresco.AlfContentM;
 
@@ -8,15 +7,8 @@ import modelo.alfresco.AlfContentM;
 public class DocumentoM {
 
     private int IDDOC;
-    private int CODDOC;
-    private String NUMLIBDOC;
-    private String NUMFOLDOC;
-    private Date FECDOC = new Date();
     private String ASUDOC;
-    private String OBSDOC;
-    private String ESTDOC;
-    private String KEYDOC;
-    private String DENDOC;
     private AlfContentM alfContent = new AlfContentM();
+    private String UUID;
     private String EXTDOC;
 }
