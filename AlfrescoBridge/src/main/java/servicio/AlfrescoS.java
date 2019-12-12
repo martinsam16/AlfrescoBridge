@@ -1,8 +1,22 @@
 package servicio;
 
 import dao.Conexion;
+import java.io.File;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import modelo.oracle.DocumentoM;
+
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.multipart.FilePart;
+import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
+import org.apache.commons.httpclient.methods.multipart.Part;
+import org.apache.commons.httpclient.methods.multipart.StringPart;
+
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.methods.GetMethod;
 
 public class AlfrescoS extends Conexion {
 
@@ -27,9 +41,4 @@ public class AlfrescoS extends Conexion {
         }
         return id;
     }
-    
-    public void subirImagen() throws Exception{
-        
-    }
-
 }
